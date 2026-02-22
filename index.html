@@ -184,10 +184,8 @@
                     <strong>AI-native software blueprints</strong> detailed enough for any LLM to generate 
                     complete, tested software. Replace ALL proprietary tools with custom builds!
                 </p>
-                <div class="install-code">
-                    # Get SKFORGE<br>
-                    git clone https://github.com/smilinTux/skforge<br>
-                    cd skforge && ./forge.mjs
+                <div class="install-code" onclick="copyToClipboard(this)" title="Click to copy!" style="cursor: pointer;">
+                    git clone https://github.com/smilinTux/skforge && cd skforge && ./forge.mjs
                 </div>
                 <p style="font-style: italic; opacity: 0.8; margin-top: 1rem;">
                     "Making decentralized cool again" - one blueprint at a time!
@@ -215,10 +213,8 @@
                     AI-powered security tools that protect without hassle. Email prescreening, 
                     network monitoring, and access control - all zero maintenance!
                 </p>
-                <div class="install-code">
-                    # Get Security Skills<br>
-                    git clone https://github.com/smilinTux/sksecurity.io<br>
-                    # Instant AI security!
+                <div class="install-code" onclick="copyToClipboard(this)" title="Click to copy!" style="cursor: pointer;">
+                    pip install sksecurity
                 </div>
             </div>
             
@@ -299,7 +295,7 @@
         
         <div style="margin: 1rem 0;">
             <a href="https://skworld.io" style="color: #87CEEB; text-decoration: none; margin: 0 1rem;">🌍 SKWorld</a>
-            <a href="https://skstacks.io" style="color: #87CEEB; text-decoration: none; margin: 0 1rem;">⚡ Platform</a>
+            <a href="https://smilintux.org/projects/" style="color: #87CEEB; text-decoration: none; margin: 0 1rem;">⚡ Projects</a>
             <a href="https://sksecurity.io" style="color: #87CEEB; text-decoration: none; margin: 0 1rem;">🛡️ Security</a>
         </div>
         
@@ -307,5 +303,21 @@
             © 2026 smilinTux — The Penguin Kingdom • Forging Freedom, One Tool at a Time ⚒️
         </p>
     </footer>
+    <script>
+        function copyToClipboard(el) {
+            const text = el.textContent.trim();
+            navigator.clipboard.writeText(text).then(() => {
+                const orig = el.innerHTML;
+                el.style.backgroundColor = 'rgba(0, 255, 0, 0.3)';
+                el.style.borderColor = '#00ff00';
+                el.textContent = '✅ Copied!';
+                setTimeout(() => {
+                    el.style.backgroundColor = '';
+                    el.style.borderColor = '';
+                    el.innerHTML = orig;
+                }, 1500);
+            }).catch(() => {});
+        }
+    </script>
 </body>
 </html>
