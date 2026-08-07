@@ -1,39 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SKForge has moved to skforge.skworld.io</title>
-<meta name="description" content="SKForge now lives at its sovereign home, skforge.skworld.io. Redirecting…">
-<!-- Permanent move: canonical points to the new home so link equity + AI/search indexing consolidate there -->
-<link rel="canonical" href="https://skforge.skworld.io/">
-<meta http-equiv="refresh" content="0; url=https://skforge.skworld.io/">
-<meta name="robots" content="noindex, follow">
-<meta property="og:type" content="website">
-<meta property="og:title" content="SKForge · SKWorld">
-<meta property="og:description" content="SKForge — forge your own software. Now at skforge.skworld.io.">
-<meta property="og:url" content="https://skforge.skworld.io/">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔨</text></svg>">
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Inter',system-ui,sans-serif;background:radial-gradient(ellipse at top,#1a0f0a 0%,#08080f 60%);color:#e0e0e0;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center}
-.box{padding:2rem}
-.icon{font-size:3.5rem;margin-bottom:1rem}
-h1{font-size:1.6rem;font-weight:700;color:#ffd700;margin-bottom:.5rem}
-p{color:rgba(255,255,255,.7);margin-bottom:1.2rem}
-a{color:#67e8f9;text-decoration:none;border:1px solid rgba(103,232,249,.35);padding:.6rem 1.3rem;border-radius:10px;font-family:'JetBrains Mono',monospace;font-size:.9rem;transition:all .3s}
-a:hover{border-color:#67e8f9;color:#fff}
-.brand{margin-top:2rem;font-family:'JetBrains Mono',monospace;font-size:.8rem;color:rgba(255,255,255,.35)}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SKForge → skforge.skworld.io</title>
+
+  <!-- Instant redirect -->
+  <meta http-equiv="refresh" content="0; url=https://skforge.skworld.io/">
+  <link rel="canonical" href="https://skforge.skworld.io/">
+
+  <!-- SEO: tell crawlers this moved permanently -->
+  <meta name="robots" content="noindex, follow">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;600;700&display=swap');
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --gold: #FFD700;
+      --cyan: #00FFFF;
+      --pink: #FF69B4;
+      --green: #50fa7b;
+      --bg: #0a0a0f;
+      --dim: rgba(255,255,255,0.55);
+      --mono: 'JetBrains Mono', 'Fira Code', monospace;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: rgba(255,255,255,0.88);
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center; padding: 2rem;
+      overflow: hidden;
+    }
+
+    /* Starfield */
+    .starfield {
+      position: fixed; inset: 0; z-index: -1;
+      background: radial-gradient(ellipse at 50% -10%, #1a1a3e 0%, #0d0d1f 40%, #0a0a0f 100%);
+    }
+    .stars {
+      position: absolute; inset: 0;
+      background-image:
+        radial-gradient(2px 2px at 20px 30px, rgba(255,215,0,0.9), transparent),
+        radial-gradient(2px 2px at 40px 70px, rgba(0,255,255,0.7), transparent),
+        radial-gradient(1px 1px at 90px 40px, rgba(255,255,255,0.9), transparent),
+        radial-gradient(1px 1px at 130px 80px, rgba(255,105,180,0.8), transparent),
+        radial-gradient(2px 2px at 160px 30px, rgba(255,255,255,0.6), transparent),
+        radial-gradient(1px 1px at 70px 55px, rgba(189,147,249,0.7), transparent);
+      background-repeat: repeat;
+      background-size: 200px 100px;
+      animation: starscroll 100s linear infinite;
+    }
+    .stars:nth-child(2) { background-size: 270px 130px; animation-duration: 145s; animation-direction: reverse; opacity: .7; }
+    .stars:nth-child(3) { background-size: 340px 165px; animation-duration: 190s; opacity: .45; }
+    @keyframes starscroll {
+      from { transform: translateX(0) translateY(0); }
+      to   { transform: translateX(-200px) translateY(-100px); }
+    }
+
+    .penguin {
+      font-size: 4rem;
+      margin-bottom: 1.5rem;
+      animation: float 3s ease-in-out infinite;
+      display: block;
+    }
+    @keyframes float {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+
+    .moved-label {
+      font-family: var(--mono); font-size: .8rem;
+      color: var(--cyan); letter-spacing: .18em;
+      text-transform: uppercase; margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      font-weight: 800; margin-bottom: .75rem; line-height: 1.1;
+    }
+
+    .arrow-line {
+      display: flex; align-items: center; justify-content: center;
+      gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem;
+    }
+    .from-name {
+      font-family: var(--mono); font-size: 1.1rem;
+      color: var(--dim); text-decoration: line-through;
+    }
+    .arrow { font-size: 1.5rem; color: var(--gold); }
+    .to-name {
+      font-family: var(--mono); font-size: 1.1rem;
+      background: linear-gradient(135deg, var(--gold), var(--cyan));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text; font-weight: 700;
+    }
+
+    p {
+      color: var(--dim); max-width: 480px;
+      line-height: 1.65; margin-bottom: 2rem;
+    }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--pink) 60%);
+      color: #000; font-weight: 700; font-size: 1rem;
+      padding: .85rem 2rem; border-radius: 10px;
+      text-decoration: none; transition: all .25s;
+      box-shadow: 0 4px 20px rgba(255,215,0,.35);
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(255,215,0,.5); }
+
+    .note {
+      margin-top: 2rem;
+      font-family: var(--mono); font-size: .8rem;
+      color: rgba(255,255,255,.3);
+    }
+  </style>
 </head>
 <body>
-<div class="box">
-<div class="icon">🔨</div>
-<h1>SKForge has moved</h1>
-<p>SKForge now lives at its sovereign home, <strong>skforge.skworld.io</strong>.</p>
-<a href="https://skforge.skworld.io/">Continue to skforge.skworld.io →</a>
-<div class="brand">🐧 part of the SKWorld ecosystem · <a style="border:none;padding:0;font-size:.8rem;" href="https://skworld.io">skworld.io</a></div>
-</div>
-<script>location.replace("https://skforge.skworld.io/"+location.pathname.replace(/^\//,'')+location.search+location.hash);</script>
+
+  <div class="starfield" aria-hidden="true">
+    <div class="stars"></div>
+    <div class="stars"></div>
+    <div class="stars"></div>
+  </div>
+
+  <span class="penguin" aria-hidden="true">🐧</span>
+
+  <div class="moved-label">We moved</div>
+
+  <h1>SKForge has a new home.</h1>
+
+  <div class="arrow-line" aria-label="Redirecting from skforge.io to skforge.skworld.io">
+    <span class="from-name">skforge.io</span>
+    <span class="arrow" aria-hidden="true">→</span>
+    <span class="to-name">skforge.skworld.io</span>
+  </div>
+
+  <p>
+    SKForge is part of the SKWorld ecosystem. Same project, same mission,
+    canonical name on the <strong style="color:rgba(255,255,255,.8)">skworld.io</strong> subdomain family.
+  </p>
+
+  <a href="https://skforge.skworld.io/" class="btn">
+    Go to skforge.skworld.io ↗
+  </a>
+
+  <p class="note">
+    You should be redirected automatically. If not, click the button above.
+    &nbsp;·&nbsp; <a href="/docs.html" style="color:var(--cyan);text-decoration:underline;">Docs</a>
+  </p>
+
+  <script>
+    // JS fallback redirect
+    if (typeof window !== 'undefined') {
+      window.location.replace('https://skforge.skworld.io/');
+    }
+  </script>
+
 </body>
 </html>
